@@ -1,0 +1,16 @@
+{
+  "name": "chat-bot",
+  "version": "1.0.0",
+  "description": "this is a chat bot repo built over the tdm portal",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://kapil_mistry_1@bitbucket.org/kapil_mistry_1/chat-bot.git"
+  },
+  "author": "gladiators",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/kapil_mistry_1/chat-bot#readme"
+}
