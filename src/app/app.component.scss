@@ -1,0 +1,14 @@
+.chat-bot {
+
+    &__background-img {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-image: url(../assets/bodybg.jpg);
+        padding: 0;
+    }
+
+}

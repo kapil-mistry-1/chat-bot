@@ -1,0 +1,18 @@
+
+.chat-bot {
+
+    &__header {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #0000a0;
+        color: white;
+    }
+
+    &__header-name {
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+}
