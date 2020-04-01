@@ -1,3 +1,8 @@
+STEPS TO RUN
+---------------
+1) npm install
+2) ng serve
+
 # ChatBot
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
