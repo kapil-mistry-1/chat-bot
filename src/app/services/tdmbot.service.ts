@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Chat } from '../models/chat';
 
-const chatBotUrl = 'http://tdm-chatbot-api.herokuapp.com/chatresponse/';
+const chatBotUrl = 'https://tdm-chatbot-api.herokuapp.com/chatresponse/';
 
 @Injectable({
   providedIn: 'root'
