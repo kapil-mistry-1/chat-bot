@@ -16,29 +16,27 @@
 
 <div class="chatbotPosition" *ngIf="openChatBox">
     <div class="chatbotheader">
-        Chatbot Name You
+        TDM Genie
         <span class="closechatwindow" (click)="closeChatBox()"><img src="../../assets/close.png"> </span>
     </div>
     <div class="chatbodywrapper">
         <div class="chatbotbody">
-            <div class="userchat">
-                <div class="usertext">Hello</div>
-            </div>
             <div class="systemchat">
-                <div class="systemtext">What can i help You?</div>
+                <div class="systemtext">What can I help you with today?</div>
             </div>
-            <div class="systemchat">
-                <div class="systemtext">Thank You!</div>
-            </div>
-            <div class="userchat">
-                <div class="usertext">Lorem ipsum dolor is dummy text</div>
-            </div>
-            <div class="userchat">
-                <div class="usertext">Lorem ipsum dolor is dummy text</div>
+            <div *ngFor="let reply of responseList">
+                
+                <div class="userchat" *ngIf="reply.from === 'user'">
+                    <div class="usertext">{{reply.response}}</div>
+                </div>
+                <div class="systemchat" *ngIf="reply.from === 'system'">
+                    <div class="systemtext">{{reply.response}}</div>
+                </div>
+                
             </div>
             <div class="sendbox">
-                <input type="text" placeholder="Type your message">
-                <button type="button">Send</button>
+                <textarea name="" id="" cols="48" rows="2" [(ngModel)]="chatQuery" placeholder="Type your query here"></textarea>
+                <button style="border-radius: 0;" type="button" class="btn btn-primary" (click)="sendQueryAndGetResponse()">Send</button>
             </div>
             
         </div>
