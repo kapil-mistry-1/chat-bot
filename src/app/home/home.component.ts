@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { TdmbotService } from '../services/tdmbot.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   bgoverly: boolean = true;
   chatQuery: string = '';
   responseList = [];
+  @ViewChild('myList') myList: ElementRef;
 
   constructor(private renderer: Renderer2, private chatBotService: TdmbotService) { }
 
@@ -26,13 +27,16 @@ export class HomeComponent implements OnInit {
     this.openChatBox = false;
   }
 
+  scrollToBottom() {
+    this.myList.nativeElement.scrollTop = this.myList.nativeElement.scrollHeight;
+  }
+
   sendQueryAndGetResponse() {
     const newQuery = { response: this.chatQuery, from: 'user' };
     this.responseList.push(newQuery);
-
-    this.chatBotService.getChatBotResponse(this.chatQuery)
+    this.chatQuery = '';
+    this.chatBotService.getChatBotResponse(newQuery.response)
       .subscribe((data) => {
-        this.chatQuery = '';
         const newResponse = { response: data.response, from: 'system' };
         this.responseList.push(newResponse);
       })
