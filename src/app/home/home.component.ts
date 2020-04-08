@@ -28,7 +28,9 @@ export class HomeComponent implements OnInit {
   }
 
   scrollToBottom() {
-    this.myList.nativeElement.scrollTop = this.myList.nativeElement.scrollHeight;
+    if (this.myList && this.myList.nativeElement) {
+      this.myList.nativeElement.scrollTop = this.myList.nativeElement.scrollHeight;
+    }
   }
 
   sendQueryAndGetResponse() {

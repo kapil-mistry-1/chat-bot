@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div class="chatbotPosition" *ngIf="openChatBox">
+<div class="chatbotPosition" [style.visibility]="openChatBox ? 'visible' : 'hidden'">
     <div class="chatbotheader">
         TDM Genie
         <span class="closechatwindow" (click)="closeChatBox()"><img src="../../assets/close.png"> </span>

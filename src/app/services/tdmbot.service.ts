@@ -14,7 +14,6 @@ export class TdmbotService {
   constructor(private http: HttpClient) { }
 
   getChatBotResponse(query): Observable<Chat> { 
-    console.log('In Service -- > ', query);
     const url = chatBotUrl + query;
     return this.http.get<Chat>(url)
   }
