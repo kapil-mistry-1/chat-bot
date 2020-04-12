@@ -1,3 +1,8 @@
 export interface Chat {
-    response: string
+    response: string,
+    subQuestions: string[],
+    intermediateQuery: boolean,
+    from?: string,
+    time?: string,
+    isVisible?: boolean
 }

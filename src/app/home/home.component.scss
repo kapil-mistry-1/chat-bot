@@ -103,7 +103,14 @@
     &__chaticon img:hover {
         transform: scale(1.2);
     }
+
+    &__dynamic-btn {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.8125rem !important;
+        background: darkblue;
+    }
 }
+
 @-webkit-keyframes mover {
     0% { transform: translateY(0); }
     100% { transform: translateY(-10px); }
@@ -177,29 +184,42 @@
                 flex: 0 0 100%;
                 display: flex;
                 margin-bottom: 10px;
+                flex-wrap: wrap;
                 justify-content: flex-end;
                 .usertext {
                     max-width: 90%;
                     font-size: 13px;
                     margin-right: 2%;
-                    border-radius: 6px;
+                    border-radius: 0px;
                     background: #f1f0f0;
                     padding: 5px 10px;
+                }
+                .time {
+                    font-size: 11px;
+                    flex: 0 0 100%;
+                    text-align: right;
+                    padding: 5px 8px 0px 8px;
                 }
             }
             .systemchat {
                 flex: 0 0 100%;
                 display: flex;
                 margin-bottom: 10px;
+                flex-wrap: wrap;
                 justify-content: flex-start;
                 .systemtext {
                     max-width: 90%;
                     color: #fff;
                     font-size: 13px;
                     margin-left: 2%;
-                    border-radius: 6px;
+                    border-radius: 0px;
                     background: #0084ff;
                     padding: 5px 10px;
+                }
+                .time {
+                    font-size: 11px;
+                    flex: 0 0 100%;
+                    padding: 5px 0px 0px 8px;
                 }
             }
             .sendbox {

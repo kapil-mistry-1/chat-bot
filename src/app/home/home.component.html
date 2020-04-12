@@ -20,25 +20,84 @@
         <span class="closechatwindow" (click)="closeChatBox()"><img src="../../assets/close.png"> </span>
     </div>
     <div #myList class="chatbodywrapper" (keyup.enter)="sendQueryAndGetResponse()">
-        <div class="chatbotbody" >
+        <div class="chatbotbody">
             <div class="systemchat">
-                <div class="systemtext">What can I help you with today?</div>
+                <div class="systemtext">Which country data are you looking for?</div>
+                <div style="margin: 2%; ">
+                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Denmark Customer')" style="font-size: 0.8125rem;">Denmark</button>
+                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Norway Customer')" style="font-size: 0.8125rem;">Norway</button>
+                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Sweden Customer')" style="font-size: 0.8125rem;">Sweden</button>
+                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Finland Customer')" style="font-size: 0.8125rem;">Finland</button>
+                    <!-- <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('none')" style="margin-top: 2%; font-size: 0.8125rem;">Or something else</button> -->
+                </div>
             </div>
             <div>
-                <div *ngFor="let reply of responseList; let last = last">
-                
-                    <div class="userchat" *ngIf="reply.from === 'user'">
-                        <div class="usertext">{{reply.response}}</div>
+				<div *ngFor="let reply of responseList; let last = last">
+                    <!-- {{reply}} -->
+                    <div *ngIf="reply.response === '' && reply.subQuestions && reply.subQuestions.length > 0 && reply.intermediateQuery" style="margin: 2%;">
+                        <div class="systemchat" *ngIf="reply.from === 'system'">
+                            <div class="systemtext" style="margin-left: 0;">In which of the following are you looking from</div>
+                        </div>
+                        <button *ngFor="let quest of reply.subQuestions" type="button" class="btn btn-primary mr-1  chat-bot__dynamic-btn" (click)="getDataForQuery(quest, true)" style="font-size: 0.8125rem;">{{quest}}</button>
                     </div>
-                    <div class="systemchat" *ngIf="reply.from === 'system'">
-                        <div class="systemtext">{{reply.response}}</div>
+                    <div *ngIf="reply.response !== ''">
+                        <div *ngIf="reply.response.indexOf('\\\\n') !== -1 && reply.subQuestions && reply.subQuestions.length === 0">
+                            <div class="systemchat">
+                                <table style="margin-left: 2%;">
+                                    <tr *ngFor="let item of reply.response.split('\\\\n')">
+                                        <td style="font-size: 0.8125rem; border-radius: 0;" class="systemtext"> {{item}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div *ngIf="reply.response.indexOf('\\\\n') === -1">
+                            <div class="userchat" *ngIf="reply.from === 'user'">
+                                <div class="usertext">{{reply.response}}</div>
+                                <div class="time">{{reply.time}}</div>
+                            </div>
+                            <div class="systemchat" *ngIf="reply.from === 'system'">
+                                <div class="systemtext">
+                                    <span *ngIf="reply.response.indexOf('jira_link') === -1 && reply.response.indexOf('pdf_link') === -1">{{reply.response}}</span>
+                                    <span *ngIf="reply.response.indexOf('jira_link') !== -1">
+                                        <a href="https://dev.azure.com/LTIRemoteHackathon/Gladiator/_workitems/recentlyupdated" target="_blank" style="color: #fff; text-decoration: none;">Jira Link</a>
+                                    </span>
+                                    <span *ngIf="reply.response.indexOf('pdf_link') !== -1">
+                                        <a href="http://www.pdf995.com/samples/pdf.pdf" target="_blank" style="color: #fff;">PDF link</a>
+                                    </span>
+                                </div>
+                                <div class="time">{{reply.time}}</div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- <div *ngIf="reply.intermediateQuery">
+                        <button type="button" class="btn btn-primary mr-1" (click)="getDataForQuery('I am looking for a Danish Customer')" style="font-size: 0.8125rem;">Denmark</button>
+                    </div>
+
+                    <div *ngIf="!reply.intermediateQuery">
+                        <div class="userchat" *ngIf="reply.from === 'user'">
+                            <div class="usertext">{{reply.response}}</div>
+                            <div class="time">07:45 PM</div>
+                        </div>
+                        <div class="systemchat" *ngIf="reply.from === 'system'">
+                            <div class="systemtext">{{reply.response}}</div>
+                            <div class="time">07:45 PM</div>
+                        </div>
+                    </div> -->
                     {{last ? scrollToBottom() : ''}}
-                </div>
+					
+				</div>
+			</div>
+            <div class="" *ngIf="responseList && responseList.length > 1">
+                <span (click)="responseList = []" 
+                    data-toggle="tooltip" data-html="true" title="Restart Chat"
+                    style="float: right; margin-right: 1.5rem; margin-bottom: 1.5rem; cursor: pointer;">
+                        <img src="../../assets/restart.png">
+                </span>
             </div>
             <div class="sendbox">
                 <textarea name="" id="" cols="48" rows="2" [(ngModel)]="chatQuery" placeholder="Type your query here"></textarea>
-                <button  style="border-radius: 0;" type="button" class="btn btn-primary" (click)="sendQueryAndGetResponse()">Send</button>
+                <button style="border-radius: 0;" type="button" class="btn btn-primary" (click)="sendQueryAndGetResponse()">Send</button>
             </div>
             
         </div>
