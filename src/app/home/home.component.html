@@ -24,10 +24,10 @@
             <div class="systemchat">
                 <div class="systemtext">Which country data are you looking for?</div>
                 <div style="margin: 2%; ">
-                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Denmark Customer')" style="font-size: 0.8125rem;">Denmark</button>
-                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Norway Customer')" style="font-size: 0.8125rem;">Norway</button>
-                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Sweden Customer')" style="font-size: 0.8125rem;">Sweden</button>
-                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Finland Customer')" style="font-size: 0.8125rem;">Finland</button>
+                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Denmark Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Denmark</button>
+                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Norway Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Norway</button>
+                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Sweden Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Sweden</button>
+                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Finland Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Finland</button>
                     <!-- <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('none')" style="margin-top: 2%; font-size: 0.8125rem;">Or something else</button> -->
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         <div class="systemchat" *ngIf="reply.from === 'system'">
                             <div class="systemtext" style="margin-left: 0;">In which of the following are you looking from</div>
                         </div>
-                        <button *ngFor="let quest of reply.subQuestions" type="button" class="btn btn-primary mr-1  chat-bot__dynamic-btn" (click)="getDataForQuery(quest, true)" style="font-size: 0.8125rem;">{{quest}}</button>
+                        <button *ngFor="let quest of reply.subQuestions" type="button" class="btn btn-primary mr-1  chat-bot__dynamic-btn" (click)="getDataForQuery(quest, true)" style="font-size: 0.8125rem; margin-top: 2px;">{{quest}}</button>
                     </div>
                     <div *ngIf="reply.response !== ''">
                         <div *ngIf="reply.response.indexOf('\\\\n') !== -1 && reply.subQuestions && reply.subQuestions.length === 0">
