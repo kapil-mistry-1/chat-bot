@@ -59,10 +59,13 @@
                                 <div class="systemtext">
                                     <span *ngIf="reply.response.indexOf('jira_link') === -1 && reply.response.indexOf('pdf_link') === -1">{{reply.response}}</span>
                                     <span *ngIf="reply.response.indexOf('jira_link') !== -1">
-                                        <a href="https://dev.azure.com/LTIRemoteHackathon/Gladiator/_workitems/recentlyupdated" target="_blank" style="color: #fff;">Jira Link</a>
+                                        <a href="https://dev.azure.com/LTIRemoteHackathon/Gladiator/_workitems/recentlyupdated" target="_blank" style="color: #fff;">Please create your JIRA here</a>
                                     </span>
                                     <span *ngIf="reply.response.indexOf('pdf_link') !== -1">
-                                        <a href="http://www.pdf995.com/samples/pdf.pdf" target="_blank" style="color: #fff;"><img style="height: 1rem; width: 1rem;  margin-bottom: 3px;" src="../../assets/pdf.png">PDF link</a>
+                                        <a href="http://www.pdf995.com/samples/pdf.pdf" target="_blank" style="color: #fff;"> 
+                                            <img style="height: 1rem; width: 1rem;  margin-bottom: 3px; margin-right: 1px;" src="../../assets/pdf.png"> 
+                                                For more information read the Pdf
+                                        </a>
                                     </span>
                                 </div>
                                 <div class="time">{{reply.time}}</div>
