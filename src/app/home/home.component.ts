@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   chatQuery: string = '';
   responseList = [];
   queryList = [];
+  second: boolean = false;
+  
   @ViewChild('myList') myList: ElementRef;
 
   constructor(private renderer: Renderer2, private chatBotService: TdmbotService) { }
@@ -27,6 +29,10 @@ export class HomeComponent implements OnInit {
   }
   closeChatBox() {
     this.openChatBox = false;
+  }
+
+  showSecondOption() {
+    this.second = true;
   }
   
   scrollToBottom() {

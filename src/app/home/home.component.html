@@ -16,19 +16,31 @@
 
 <div class="chatbotPosition" [style.visibility]="openChatBox ? 'visible' : 'hidden'">
     <div class="chatbotheader">
-        TDM Genie
+        Elina
         <span class="closechatwindow" (click)="closeChatBox()"><img src="../../assets/close.png"> </span>
     </div>
     <div #myList class="chatbodywrapper" (keyup.enter)="sendQueryAndGetResponse()">
         <div class="chatbotbody">
             <div class="systemchat">
-                <div class="systemtext">Which country data are you looking for?</div>
-                <div style="margin: 2%; ">
-                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Denmark Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Denmark</button>
-                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Norway Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Norway</button>
-                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Sweden Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Sweden</button>
-                    <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Finland Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Finland</button>
-                    <!-- <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('none')" style="margin-top: 2%; font-size: 0.8125rem;">Or something else</button> -->
+                <div>
+                    <div class="systemtext">Select your application</div>
+                    <div style="margin: 2%; ">
+                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">OSIA</button>
+                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">CBB</button>
+                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">STARS</button>
+                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">NEPP</button>
+                        <!-- <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('none')" style="margin-top: 2%; font-size: 0.8125rem;">Or something else</button> -->
+                    </div>
+                </div>
+                <div *ngIf="second" style="margin-top: 0.8125rem;">
+                    <div class="systemtext">Which country data are you looking for ?</div>
+                    <div style="margin: 2%; ">
+                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Denmark Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Denmark</button>
+                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Norway Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Norway</button>
+                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Sweden Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Sweden</button>
+                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Finland Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Finland</button>
+                        <!-- <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('none')" style="margin-top: 2%; font-size: 0.8125rem;">Or something else</button> -->
+                    </div>
                 </div>
             </div>
             <div>
@@ -92,7 +104,7 @@
 				</div>
 			</div>
             <div class="" *ngIf="responseList && responseList.length > 1">
-                <span (click)="responseList = []" 
+                <span (click)="responseList = []; second = false;" 
                     data-toggle="tooltip" data-html="true" title="Restart Chat"
                     style="float: right; margin-right: 1.5rem; margin-bottom: 1.5rem; cursor: pointer;">
                         <img src="../../assets/restart.png">
@@ -108,6 +120,6 @@
 </div>
 
 <div class="chat-bot__chaticon">
-    <div class="askme">Ask me</div>
+    <div class="askme">Ask Elina</div>
     <span (click)="showChatBox()"><img src="../../assets/chat-icon.png"></span>
 </div>

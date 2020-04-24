@@ -1,5 +1,9 @@
 .chat-bot {
 
+    &__highlighted-button {
+        background: darkblue;
+    }
+
     &__cards {
         height: 100%;
         display: flex;
