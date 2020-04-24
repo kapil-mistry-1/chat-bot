@@ -24,7 +24,7 @@
             <div class="systemchat">
                 <div>
                     <div class="systemtext">Select your application</div>
-                    <div style="margin: 2%; ">
+                    <div style="margin: 2%; width: 100%;">
                         <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">OSIA</button>
                         <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">CBB</button>
                         <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">STARS</button>
@@ -34,7 +34,7 @@
                 </div>
                 <div *ngIf="second" style="margin-top: 0.8125rem;">
                     <div class="systemtext">Which country data are you looking for ?</div>
-                    <div style="margin: 2%; ">
+                    <div style="margin: 2%; width: 100%;">
                         <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Denmark Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Denmark</button>
                         <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Norway Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Norway</button>
                         <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I am looking for a Sweden Customer')" style="font-size: 0.8125rem; margin-top: 2px;">Sweden</button>
