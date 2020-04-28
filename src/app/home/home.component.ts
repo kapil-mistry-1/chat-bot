@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   responseList = [];
   queryList = [];
   second: boolean = false;
+  chatbotWhatToAsk: boolean = false;
   
   @ViewChild('myList') myList: ElementRef;
 

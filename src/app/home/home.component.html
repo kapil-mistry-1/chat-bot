@@ -16,8 +16,29 @@
 
 <div class="chatbotPosition" [style.visibility]="openChatBox ? 'visible' : 'hidden'">
     <div class="chatbotheader">
-        Elina
+        <span><img src="../../assets/chat3.png"></span> Elina
         <span class="closechatwindow" (click)="closeChatBox()"><img src="../../assets/close.png"> </span>
+    </div>
+    <div class="chatbotWhatToAsk" style="cursor: pointer; position: absolute; top: 46px; width: 100%; border-bottom: 2px solid #CEECCE; padding: 10px; background: #fff;" >
+        <div (click)="chatbotWhatToAsk = !chatbotWhatToAsk" style="padding: 5px; background-color: #EEEEEE; width: 100%;">
+            Dont know what to ask, click here for help 
+        </div>
+        <div *ngIf="chatbotWhatToAsk" style="width: 100%; margin: 10px;">
+            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('Can you help me create a NLP customer')" style="font-size: 0.8125rem; margin-top: 2px;">
+                Can you help me create a NLP customer
+            </button> 
+            
+            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('Can you help me with Account Services')" style="font-size: 0.8125rem; margin-top: 2px;">
+                Can you help me with Account Services In Denmark
+            </button> 
+            
+            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('Can you help me with Private Banking Customer with consolidation')" style="font-size: 0.8125rem; margin-top: 2px;">
+                Can you help me with Private Banking Customer with consolidation
+            </button> 
+            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I want to report an error')" style="font-size: 0.8125rem; margin-top: 2px;">
+                I want to report an error
+            </button> 
+        </div>
     </div>
     <div #myList class="chatbodywrapper" (keyup.enter)="sendQueryAndGetResponse()">
         <div class="chatbotbody">
