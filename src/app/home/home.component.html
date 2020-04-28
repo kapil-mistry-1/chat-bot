@@ -16,26 +16,26 @@
 
 <div class="chatbotPosition" [style.visibility]="openChatBox ? 'visible' : 'hidden'">
     <div class="chatbotheader">
-        <span><img src="../../assets/chat3.png"></span> Elina
+        <span><img src="../../assets/elina2.png"></span> <span style="font-weight: bold; padding-left: 10px; letter-spacing: 1px;">Elina</span>
         <span class="closechatwindow" (click)="closeChatBox()"><img src="../../assets/close.png"> </span>
     </div>
-    <div class="chatbotWhatToAsk" style="cursor: pointer; position: absolute; top: 46px; width: 100%; border-bottom: 2px solid #CEECCE; padding: 10px; background: #fff;" >
+    <div class="chatbotWhatToAsk" style="cursor: pointer; position: absolute; top: 46px; width: 100%; border-bottom: 1px solid darkblue; padding: 10px; background: #fff;" >
         <div (click)="chatbotWhatToAsk = !chatbotWhatToAsk" style="padding: 5px; background-color: #EEEEEE; width: 100%;">
             Dont know what to ask, click here for help 
         </div>
-        <div *ngIf="chatbotWhatToAsk" style="width: 100%; margin: 10px;">
-            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('Can you help me create a NLP customer')" style="font-size: 0.8125rem; margin-top: 2px;">
-                Can you help me create a NLP customer
+        <div *ngIf="chatbotWhatToAsk" style="width: 100%; margin-top: 2%;">
+            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="chatbotWhatToAsk = false; getDataForQuery('Do you want to understand about Test Data Mgmt')" style="font-size: 0.8125rem; margin-top: 2px; text-align: left;">
+                Do you want to understand about Test Data Mgmt
             </button> 
             
-            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('Can you help me with Account Services')" style="font-size: 0.8125rem; margin-top: 2px;">
-                Can you help me with Account Services In Denmark
+            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="chatbotWhatToAsk = false; getDataForQuery('Do you want to understand how to request data through the Portal')" style="font-size: 0.8125rem; margin-top: 2px; text-align: left;">
+                Do you want to understand how to request data through the Portal
             </button> 
             
-            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('Can you help me with Private Banking Customer with consolidation')" style="font-size: 0.8125rem; margin-top: 2px;">
+            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="chatbotWhatToAsk = false; getDataForQuery('Can you help me with Private Banking Customer with consolidation')" style="font-size: 0.8125rem; margin-top: 2px; text-align: left;">
                 Can you help me with Private Banking Customer with consolidation
             </button> 
-            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('I want to report an error')" style="font-size: 0.8125rem; margin-top: 2px;">
+            <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="chatbotWhatToAsk = false; getDataForQuery('I want to report an error')" style="font-size: 0.8125rem; margin-top: 2px; text-align: left;">
                 I want to report an error
             </button> 
         </div>
@@ -47,7 +47,7 @@
                     <div class="systemtext">Welcome, Please select your application</div>
                     <div style="margin: 2%; width: 100%;">
                         <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">OSIA</button>
-                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">CBT</button>
+                        <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">CBP</button>
                         <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">STARS</button>
                         <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="showSecondOption()" style="font-size: 0.8125rem; margin-top: 2px;">NEPP</button>
                         <!-- <button type="button" class="btn btn-primary mr-1 chat-bot__dynamic-btn" (click)="getDataForQuery('none')" style="margin-top: 2%; font-size: 0.8125rem;">Or something else</button> -->
@@ -95,9 +95,8 @@
                                         <a href="https://dev.azure.com/LTIRemoteHackathon/Gladiator/_workitems/recentlyupdated" target="_blank" style="color: #fff;">Please create your JIRA here</a>
                                     </span>
                                     <span *ngIf="reply.response.indexOf('pdf_link') !== -1">
-                                        <a href="http://www.pdf995.com/samples/pdf.pdf" target="_blank" style="color: #fff;"> 
-                                            <img style="height: 1rem; width: 1rem;  margin-bottom: 3px; margin-right: 1px;" src="../../assets/pdf.png"> 
-                                                For more information read the Pdf
+                                        <a href="http://www.pdf995.com/samples/pdf.pdf" target="_blank" style="color: #fff; "> 
+                                            Sorry. I am still learning. You can get some more information by going through the <img style="height: 1rem; width: 1rem;  margin-bottom: 3px; margin-right: 1px;" src="../../assets/pdf.png"> pdf
                                         </a>
                                     </span>
                                 </div>
